@@ -1,0 +1,3 @@
+- npx degit sveltejs/template spent-split
+- git init
+- 
