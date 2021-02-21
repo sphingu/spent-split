@@ -1,0 +1,2 @@
+- SASS in Svelte : https://daveceddia.com/svelte-with-sass-in-vscode/
+- SASS awesome : https://github.com/Famolus/awesome-sass#frameworks

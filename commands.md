@@ -1,3 +1,3 @@
 - npx degit sveltejs/template spent-split
 - git init
-- 
+- node scripts/setupTypeScript.js
