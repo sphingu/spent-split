@@ -1,0 +1,5 @@
+- https://svelte.dev/tutorial/media-elements
+- https://svelte.dev/tutorial/dimensions
+- https://svelte.dev/tutorial/bind-this
+- https://svelte.dev/tutorial/component-bindings
+- https://svelte.dev/tutorial/tick
