@@ -1,0 +1,31 @@
+@import "sass-basis/src/css/basis-core";
+
+@import "variables/color";
+@import "component/btn";
+@import "component/bg";
+
+// Import full Spectre source code
+// @import "node_modules/spectre.css/src/spectre";
+
+:root {
+  --primary-color: $p-color;
+  --secondary-color: $s-color;
+  --foreground-color: $f-color;
+  --background-color: $b-color;
+}
+
+body {
+  font-family: "Source Sans Pro";
+  color: $f-color;
+  width: 100%;
+  min-height: 100vh;
+  font-size: 1em;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  background: linear-gradient(-45deg, #0a0303fa, #171735, #132b3e, #0f1329);
+  background-size: 400% 400%;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+}

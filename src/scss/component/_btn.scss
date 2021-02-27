@@ -1,0 +1,59 @@
+@mixin button($color) {
+  color: $color;
+  border: 0.15em solid $color;
+  background-color: transparent;
+  $sat: saturate($color, 20%);
+  $desat: desaturate($color, 50%);
+
+  &:not(:disabled):hover {
+    border-style: dashed;
+  }
+  &:not(:disabled):focus {
+    color: $sat;
+    border-color: $sat;
+    border-style: dashed;
+  }
+  &:not(:disabled):active {
+    background-color: $color;
+    color: $b-color;
+  }
+  &:disabled {
+    color: $desat;
+    border-color: $desat;
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.btn {
+  @include _btn();
+  padding: 1em 2em;
+  margin: 0.5em 1em;
+  transition: all ease-in-out 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: bold;
+  outline: 0;
+
+  // size
+  &--default {
+    font-size: 1em;
+  }
+  &--small {
+    font-size: 0.7em;
+  }
+  &--big {
+    font-size: 1.5em;
+  }
+
+  // color
+  &--default {
+    @include button($f-color);
+  }
+  &--primary {
+    @include button($p-color);
+  }
+  &--secondary {
+    @include button($s-color);
+  }
+}

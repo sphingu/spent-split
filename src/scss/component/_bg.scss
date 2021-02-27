@@ -1,0 +1,49 @@
+$colors: (
+  p: $p-color,
+  s: $s-color,
+  f: $f-color,
+  b: $b-color,
+);
+
+$variations: (5, 10, 15, 20);
+
+@each $name, $hex in $colors {
+  .bg-#{$name} {
+    background-color: $hex;
+  }
+
+  .bg-#{$name}-desat {
+    background-color: desaturate($hex, 50%);
+  }
+  .bg-#{$name}-sat {
+    background-color: saturate($hex, 20%);
+  }
+  .bg-#{$name}-com {
+    background-color: complement($hex);
+  }
+  .bg-#{$name}-des {
+    background-color: invert($hex);
+  }
+}
+
+// light
+@each $name, $hex in $colors {
+  @each $v in $variations {
+    $perc: percentage($v/100);
+    $val: ($v/5);
+    .bg-#{$name}-l#{$val} {
+      background-color: lighten($hex, $perc);
+    }
+  }
+}
+
+// dark
+@each $name, $hex in $colors {
+  @each $v in $variations {
+    $perc: percentage($v/100);
+    $val: ($v/5);
+    .bg-#{$name}-d#{$val} {
+      background-color: darken($hex, $perc);
+    }
+  }
+}
