@@ -1,0 +1,16 @@
+.spinner {
+  display: inline-flex;
+  margin: 0.5em;
+  width: 1.2em;
+  height: 1.2em;
+  border: 0.2em solid rgba(black, 0.3);
+  border-radius: 50%;
+  border-top-color: currentColor;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
