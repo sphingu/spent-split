@@ -2,9 +2,9 @@
   import { fly } from 'svelte/transition'
   export let type: 'button' | 'submit' | 'reset' = 'button'
   export let kind: 'primary' | 'secondary' | 'default' = 'default'
-  export let size: 'default' | 'small' | 'big' = 'default'
+  export let size: 'medium' | 'small' | 'big' = 'medium'
   export let disabled: boolean = false
-  export let loading: boolean = true
+  export let loading: boolean = false
 
   $: props = {
     type,
@@ -15,7 +15,7 @@
   }
 </script>
 
-<button {...props} on:click>
+<button {...props} on:click on:submit|preventDefault>
   {#if loading}
     <span transition:fly={{ x: -20, duration: 200 }} class="spinner" />
   {/if}

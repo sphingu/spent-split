@@ -1,0 +1,104 @@
+@mixin input-filled-style($color) {
+  + {
+    label {
+      background-color: $b-color;
+    }
+  }
+}
+@mixin input-wrapper($color) {
+  label {
+    color: $color;
+  }
+  input {
+    color: _light($color);
+    border-color: $color;
+    &:focus {
+      border-color: $color !important;
+      background-color: rgba($color, 0.1);
+      @include input-filled-style($color);
+    }
+  }
+
+  &.filled {
+    input {
+      @include input-filled-style($color);
+    }
+  }
+}
+
+.input-filled-style {
+  + {
+    label {
+      top: -0.6em;
+      left: 0.8em;
+      padding: 0 0.5em;
+      font-size: 0.9em;
+    }
+  }
+}
+.input-wrapper {
+  margin: 1em;
+  position: relative;
+  label {
+    position: absolute;
+    left: 0.8em;
+    top: 0.8em;
+    transition: all ease-in-out 0.2s;
+  }
+  input {
+    letter-spacing: inherit;
+    background-color: transparent;
+    width: 100%;
+    padding: 0 0.8em;
+    margin: 0;
+    line-height: 2.5em;
+    box-sizing: border-box;
+    border: 0.15em solid;
+    outline: none;
+    &:focus {
+      border-style: dashed;
+      @extend .input-filled-style;
+    }
+  }
+
+  &.filled {
+    input {
+      @extend .input-filled-style;
+    }
+  }
+
+  &.error {
+    input {
+      border-color: $red !important;
+    }
+    span {
+      display: inherit;
+      padding: 0.05em 0.8em 0.2em;
+      width: auto;
+      background-color: $red;
+      color: $b-color;
+    }
+  }
+
+  // size
+  &.medium {
+    font-size: 1em;
+  }
+  &.small {
+    font-size: 0.7em;
+  }
+  &.big {
+    font-size: 1.5em;
+  }
+
+  // color
+  &.default {
+    @include input-wrapper($f-color);
+  }
+  &.primary {
+    @include input-wrapper($p-color);
+  }
+  &.secondary {
+    @include input-wrapper($s-color);
+  }
+}
