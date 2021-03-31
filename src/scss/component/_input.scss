@@ -69,14 +69,14 @@
 
   &.error {
     input {
-      border-color: $red !important;
+      border-color: $error !important;
       border-bottom: none;
     }
     span {
       display: inherit;
       padding: 0.2em 0.8em;
       width: auto;
-      background-color: $red;
+      background-color: $error;
       color: $b-color;
     }
   }

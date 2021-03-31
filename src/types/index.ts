@@ -14,3 +14,12 @@ export type FieldInfo = Omit<FieldType, 'id'> & {
 }
 
 export type FieldEventType = (e: Event) => void
+
+export type ToastType = 'info' | 'warning' | 'success' | 'error'
+
+export type ToastMessageType = {
+  id: string
+  message: string
+  type: ToastType
+  timerId: number
+}
