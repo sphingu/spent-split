@@ -70,10 +70,11 @@
   &.error {
     input {
       border-color: $red !important;
+      border-bottom: none;
     }
     span {
       display: inherit;
-      padding: 0.05em 0.8em 0.2em;
+      padding: 0.2em 0.8em;
       width: auto;
       background-color: $red;
       color: $b-color;

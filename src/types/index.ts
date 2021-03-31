@@ -12,3 +12,5 @@ export type FieldInfo = Omit<FieldType, 'id'> & {
   error: string
   validate: (value?: string) => string
 }
+
+export type FieldEventType = (e: Event) => void
