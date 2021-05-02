@@ -3,7 +3,8 @@
 
   import { fields } from './store'
   import * as C from './constants'
-  import Input from '../Input.svelte'
+  import { Input } from '../index'
+
   import type { FieldEventType } from '../../types'
 
   export let name: string

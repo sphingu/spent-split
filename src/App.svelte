@@ -1,9 +1,13 @@
 <script lang="ts">
-  import Style from "./Style.svelte";
+  import { Style, Toast } from './components'
+
+  import { AddEditUser } from './pages'
 </script>
 
 <Style />
-<h1>Hello Svelte</h1>
-<input /><button class="btn">default button</button>
-<button class="btn btn-primary">primary button</button>
-<button class="btn btn-link">link button</button>
+<Toast />
+
+<AddEditUser
+  userId="1"
+  userInfo={{ lastName: 'Last Name', firstName: 'First Name' }}
+/>

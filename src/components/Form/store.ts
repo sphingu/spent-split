@@ -63,7 +63,7 @@ function createFields() {
 
   const resetAllFields = () =>
     _updateAllField((field) => ({ ...field, value: '', error: '' }))
-    
+
   const touchAllFields = () =>
     _updateAllField((field) => ({
       ...field,
@@ -83,7 +83,14 @@ function createFields() {
 
 export const fields = createFields()
 
-export const isValid = derived(
+export const isFormValid = derived(
   fields,
   ($fields) => !Object.values($fields).find((field) => field.error)
+)
+export const isFormModified = derived(fields, ($fields) =>
+  Boolean(
+    Object.values($fields).find(
+      (field) => (field.initialValue || '') !== field.value
+    )
+  )
 )

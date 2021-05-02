@@ -1,19 +1,19 @@
 <script lang="ts">
-  import { fields, isValid } from './store'
+  import { fields, isFormValid, isFormModified } from './store'
   import { setContext } from 'svelte'
   import * as C from './constants'
   import type { FieldType } from '../../types'
 
   export let initialFields: FieldType[]
   export let onSubmit: (values: Record<string, unknown>) => Promise<unknown>
-  let isLoading = false
+  let isSubmitting = false
 
   //#region Form Event Handlers
   const handleReset = () => fields.resetAllFields()
   const handleSubmit = () => {
     fields.touchAllFields()
 
-    if (!$isValid) {
+    if (!$isFormValid) {
       return
     }
 
@@ -22,9 +22,9 @@
       {}
     )
 
-    isLoading = true
+    isSubmitting = true
 
-    return onSubmit(values).finally(() => (isLoading = false))
+    return onSubmit(values).finally(() => (isSubmitting = false))
   }
   //#endregion
 
@@ -53,5 +53,7 @@
   on:submit|preventDefault={handleSubmit}
   on:reset|preventDefault={handleReset}
 >
-  <slot {isValid} {isLoading} />
+  <slot
+    {isSubmitting}
+  />
 </form>

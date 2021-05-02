@@ -1,3 +1,3 @@
 <style lang="scss" global>
-  @import './scss/main';
+  @import '../scss/main';
 </style>
