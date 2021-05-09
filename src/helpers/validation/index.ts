@@ -1,4 +1,4 @@
-import { ValidationEnum, ValidationMessages } from '../../constants'
+import { ValidationEnum, ValidationMessages } from '@/constants'
 import { ValidationRules } from './rules'
 type ArgType = {
   minValue?: number

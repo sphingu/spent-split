@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button } from '../index'
+  import { Button } from '@/components'
   import { isFormModified, isFormValid } from './store'
 
   export let isSubmitting: boolean

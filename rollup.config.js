@@ -6,6 +6,7 @@ import { terser } from 'rollup-plugin-terser'
 import sveltePreprocess from 'svelte-preprocess'
 import typescript from '@rollup/plugin-typescript'
 import css from 'rollup-plugin-css-only'
+import alias from "@rollup/plugin-alias";
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -70,6 +71,13 @@ export default {
     typescript({
       sourceMap: !production,
       inlineSources: !production,
+    }),
+    //Ref: https://stackoverflow.com/questions/65179520/import-alias-svelte-component-in-typescript-svelte
+    alias({
+      entries: [
+        // If you add a new top-level-folder besides src which you want to use, add it here
+        { find: /^@(\/|$)/, replacement: `${__dirname}/src/` },
+      ],
     }),
 
     // In dev mode, call `npm run start` once

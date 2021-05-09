@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Style, Toast } from './components'
+  import { Style, Toast } from '@/components'
 
-  import { AddEditUser } from './pages'
+  import { AddEditUser } from '@/pages'
 </script>
 
 <Style />

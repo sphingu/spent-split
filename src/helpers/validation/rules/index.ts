@@ -1,4 +1,4 @@
-import { ValidationEnum } from '../../../constants'
+import { ValidationEnum } from '@/constants'
 import {
   validateMaxLength,
   validateMaxValue,

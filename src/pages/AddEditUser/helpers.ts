@@ -1,5 +1,6 @@
-import { prepareValidations } from '../../helpers'
-import type { FieldType } from '../../types'
+import { prepareValidations } from '@/helpers'
+
+import type { FieldType } from '@/types'
 import type { IUser } from './types'
 
 export const getFormFields = (userInfo: IUser): FieldType[] => [

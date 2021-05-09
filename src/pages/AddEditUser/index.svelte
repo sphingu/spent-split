@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { Form, Field, FormButtons } from '../../components'
+  import { Form, Field, FormButtons } from '@/components'
   import { addEditUser, getFormFields } from './helpers'
 
-  import type { FieldType } from '../../types'
+  import type { FieldType } from '@/types'
   import type { IUser } from './types'
 
   export let userId: string = ''

@@ -1,8 +1,10 @@
 <script lang="ts">
-  import { fields, isFormValid, isFormModified } from './store'
   import { setContext } from 'svelte'
+
+  import { fields, isFormValid } from './store'
   import * as C from './constants'
-  import type { FieldType } from '../../types'
+
+  import type { FieldType } from '@/types'
 
   export let initialFields: FieldType[]
   export let onSubmit: (values: Record<string, unknown>) => Promise<unknown>
@@ -53,7 +55,5 @@
   on:submit|preventDefault={handleSubmit}
   on:reset|preventDefault={handleReset}
 >
-  <slot
-    {isSubmitting}
-  />
+  <slot {isSubmitting} />
 </form>

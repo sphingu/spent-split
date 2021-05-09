@@ -1,11 +1,11 @@
 <script lang="ts">
   import { getContext } from 'svelte'
 
+  import { Input } from '@/components'
   import { fields } from './store'
   import * as C from './constants'
-  import { Input } from '../index'
 
-  import type { FieldEventType } from '../../types'
+  import type { FieldEventType } from '@/types'
 
   export let name: string
   $: field = $fields[name]

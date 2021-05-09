@@ -1,6 +1,7 @@
 import { writable, derived } from 'svelte/store'
-import { getValidator } from '../../helpers/validation'
-import type { FieldInfo, FieldType } from '../../types'
+
+import { getValidator } from '@/helpers'
+import type { FieldInfo, FieldType } from '@/types'
 
 function createFields() {
   const { subscribe, set, update } = writable({} as Record<string, FieldInfo>)

@@ -1,5 +1,6 @@
 import { writable } from 'svelte/store'
-import type { ToastMessageType, ToastType } from '../../types'
+
+import type { ToastMessageType, ToastType } from '@/types'
 
 const TIMEOUT = 5000 // 5 seconds
 
