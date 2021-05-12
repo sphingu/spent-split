@@ -31,7 +31,7 @@ function createToasts() {
     )
   const addToast = (message: string, type: ToastType) => {
     toastCount++
-    const timerId = setTimeout(
+    const timerId: NodeJS.Timeout = setTimeout(
       clearToast.bind(undefined, String(toastCount)),
       TIMEOUT
     )
@@ -43,7 +43,7 @@ function createToasts() {
         message,
         type,
         timerId,
-      },
+      } as ToastMessageType,
     ])
   }
 

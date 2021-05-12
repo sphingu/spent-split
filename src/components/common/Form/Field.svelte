@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getContext } from 'svelte'
 
-  import { Input } from '@/components'
+  import Input from '../Input.svelte'
   import { fields } from './store'
   import * as C from './constants'
 

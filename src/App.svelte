@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { Style, Toast } from '@/components'
+  import { setClient } from 'svelte-apollo'
 
-  import { AddEditUser } from '@/pages'
+  import { client } from '@/graphql'
+  import { Style, Toast } from '@/components'
+  import Test from './Test.svelte'
+
+  setClient(client)
 </script>
 
 <Style />
 <Toast />
-
-<AddEditUser
-  userId="1"
-  userInfo={{ lastName: 'Last Name', firstName: 'First Name' }}
-/>
+<Test />

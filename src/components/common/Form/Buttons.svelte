@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button } from '@/components'
+  import Button from '../Button.svelte'
   import { isFormModified, isFormValid } from './store'
 
   export let isSubmitting: boolean

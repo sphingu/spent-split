@@ -21,5 +21,5 @@ export type ToastMessageType = {
   id: string
   message: string
   type: ToastType
-  timerId: number
+  timerId: NodeJS.Timeout
 }
