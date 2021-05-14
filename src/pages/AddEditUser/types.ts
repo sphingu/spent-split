@@ -1,4 +1,5 @@
 export type IUser = {
-  firstName?: string
-  lastName?: string
+  id: string
+  name: string
+  email: string
 }

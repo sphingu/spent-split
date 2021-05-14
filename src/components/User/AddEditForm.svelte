@@ -1,22 +1,22 @@
 <script lang="ts">
   import { Form, Field, FormButtons } from '@/components/common'
-
   import type { FieldType } from '@/types'
 
   export let isAdd: boolean
   export let fields: FieldType[]
+
   export let onSubmit: (value: Record<string, unknown>) => Promise<void>
 
-  $: title = isAdd ? 'Edit User' : 'New User'
-  $: submitText = isAdd ? 'Update' : 'Create'
+  $: title = isAdd ? 'New User' : 'Edit User'
+  $: submitText = isAdd ? 'Create' : 'Update'
 </script>
 
 <div class="add-edit-user-wrapper">
   <h1>{title}</h1>
 
   <Form initialFields={fields} {onSubmit} let:isSubmitting>
-    <Field name="firstName" />
-    <Field name="lastName" />
+    <Field name="name" />
+    <Field name="email" />
 
     <FormButtons {submitText} {isSubmitting} />
   </Form>

@@ -5,12 +5,23 @@ export const ALL_USERS = gql`
     users {
       id
       name
+      email
     }
   }
 `
+export const GET_USER = gql`
+  query ($id: Int!) {
+    user(id: $id) {
+      id
+      name
+      email
+    }
+  }
+`
+
 export const ADD_USER = gql`
   mutation ($name: String!, $email: String!) {
-    createUser(name: $name, email: $email ) {
+    createUser(name: $name, email: $email) {
       id
     }
   }

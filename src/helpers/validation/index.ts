@@ -3,6 +3,7 @@ import { ValidationRules } from './rules'
 type ArgType = {
   minValue?: number
   maxValue?: number
+  email?: boolean
 }
 
 const prepareValidator = (fieldName: string, validationName: string) => {
@@ -40,7 +41,7 @@ export const prepareValidations = (
   required: boolean,
   minLength: number,
   maxLength: number,
-  { minValue, maxValue }: ArgType = {}
+  { minValue, maxValue, email }: ArgType = {}
 ): string[] => {
   const validations: string[] = []
 
@@ -49,6 +50,7 @@ export const prepareValidations = (
   if (maxLength) validations.push(`${ValidationEnum.MaxLength}:${maxLength}`)
   if (minValue) validations.push(`${ValidationEnum.MinValue}:${minValue}`)
   if (maxValue) validations.push(`${ValidationEnum.MaxValue}:${maxValue}`)
+  if (email) validations.push(`${ValidationEnum.Email}`)
 
   return validations
 }

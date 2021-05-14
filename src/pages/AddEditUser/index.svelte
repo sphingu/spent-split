@@ -1,22 +1,41 @@
 <script lang="ts">
-  import { UserAddEditForm } from '@/components'
-  import { addEditUser } from './helpers'
+  import { GET_USER } from '@/graphql'
+  import { LoadData, UserAddEditForm } from '@/components'
+  import { getFormFields } from './helpers'
 
-  import type { FieldType } from '@/types'
   import type { IUser } from './types'
 
-  export let userId: string = ''
-  // export let userInfo: Partial<IUser> = {}
+  export let userId: number
+  let data: { user: IUser }
 
-  let fields: FieldType[] = []
-  //  getFormFields(userInfo)
-
-  $: isAdd = !userId
-
+  // const addUser = mutation(ADD_USER)
   const handleSubmit = async (values: IUser): Promise<void> => {
-    const result = addEditUser(userId, values)
-    console.log(result)
+    console.log(values)
+    // try {
+    //   const data = await addUser({
+    //     variables: { name: values.name, email: values.email },
+    //   })
+    // } catch (error) {
+    // }
   }
 </script>
 
-<UserAddEditForm {isAdd} {fields} onSubmit={handleSubmit} />
+{#if !userId}
+  <UserAddEditForm
+    isAdd={true}
+    fields={getFormFields(data.user)}
+    onSubmit={handleSubmit}
+  />
+{:else}
+  <LoadData query={GET_USER} variables={{ id: userId }} bind:value={data}>
+    {#if data.user}
+      <UserAddEditForm
+        isAdd={false}
+        fields={getFormFields(data.user)}
+        onSubmit={handleSubmit}
+      />
+    {:else}
+      404 : User not found
+    {/if}
+  </LoadData>
+{/if}
